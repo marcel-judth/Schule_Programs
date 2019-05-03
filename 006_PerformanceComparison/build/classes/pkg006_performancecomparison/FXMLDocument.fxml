@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg006_performancecomparison.FXMLDocumentController">
+    <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Oracle">
+            <items>
+              <MenuItem fx:id="mItemOrDeleteAll" mnemonicParsing="false" onAction="#actionPerform" text="DeleteAll" />
+                  <MenuItem fx:id="mItemOrCreateSingle" mnemonicParsing="false" onAction="#actionPerform" text="Create # Single" />
+                  <MenuItem fx:id="mItemOrCreateBulk" mnemonicParsing="false" onAction="#actionPerform" text="Create # Bulk" />
+                  <MenuItem fx:id="mItemOrSearchKey" mnemonicParsing="false" onAction="#actionPerform" text="Search Key" />
+                  <MenuItem fx:id="mItemOrSearchDate" mnemonicParsing="false" onAction="#actionPerform" text="Search Date" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="MongoDB">
+               <items>
+                  <MenuItem fx:id="mItemMoDeleteAll" mnemonicParsing="false" onAction="#actionPerform" text="DeleteAll" />
+                  <MenuItem fx:id="mItemMoCreateSingle" mnemonicParsing="false" onAction="#actionPerform" text="Create # Single" />
+                  <MenuItem fx:id="mItemMoCreateBulk" mnemonicParsing="false" onAction="#actionPerform" text="Create # Bulk" />
+                  <MenuItem fx:id="mItemMoSearchKey" mnemonicParsing="false" onAction="#actionPerform" text="Search Key" />
+                  <MenuItem fx:id="mItemMoSearchDate" mnemonicParsing="false" onAction="#actionPerform" text="Search Date" />
+                  <MenuItem fx:id="mItemMoSearchDateISO" mnemonicParsing="false" onAction="#actionPerform" text="Search Date ISO" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="14.0" layoutY="87.0" text="# of animals:" />
+      <TextField fx:id="txtNumberOfAnimals" layoutX="110.0" layoutY="82.0" prefHeight="26.0" prefWidth="69.0" text="10000" />
+      <Label fx:id="lblMessage" alignment="CENTER" layoutX="20.0" layoutY="167.0" prefHeight="29.0" prefWidth="519.0" style="-fx-background-color: lightpink;" text="..." />
+    </children>
+</AnchorPane>

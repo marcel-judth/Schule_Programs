@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+       <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content="Julian Blaschke"/>
+        <meta name="generator" content="Jekyll v3.8.5"/>
+        <title>hotels - new booking</title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/"/>
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <link rel="shortcut icon" type="image/svg" href="/book.svg"/>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="bed.svg" width="50" height="50" alt="books-application"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.xhtml">list-hotels</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <br></br>
+            <h3> update booking</h3>
+            <p> update booking at #{listhotels.currentHotel.designation}</p>
+            <br></br>
+            <h:form class="form-inline">
+                <h:inputText class="form-control mr-sm-2 form-control-sm" value="#{updateBooking.listbookings.currentBooking.guest}" p:type="text" p:placeholder="guest"></h:inputText>
+                <h:inputText class="form-control mr-sm-2 form-control-sm" value="#{updateBooking.listbookings.currentBooking.check_in_str}" p:type="date" p:placeholder="check in"></h:inputText>
+                <h:inputText class="form-control mr-sm-2 form-control-sm" value="#{updateBooking.listbookings.currentBooking.check_out_str}" p:type="date" p:placeholder="check out"></h:inputText>
+                <h:inputText class="form-control mr-sm-2 form-control-sm" value="#{updateBooking.listbookings.currentBooking.number_of_rooms}" p:type="number" p:placeholder="number of rooms"></h:inputText>
+                <h:commandButton class="btn btn-outline-secondary btn-sm my-2" value="update booking" action="#{updateBooking.update()}" ></h:commandButton>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

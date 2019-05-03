@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.Controller">
+   <center>
+      <Pane fx:id="pane_crossing" maxHeight="500.0" maxWidth="600.0" minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/res/crossing.png&quot;);" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <ListView fx:id="listview_log" maxHeight="1000.0" maxWidth="600.0" minHeight="150.0" minWidth="600.0" prefHeight="250.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="button_start" mnemonicParsing="false" onAction="#onAction" text="Start" />
+            <Button fx:id="button_stop" mnemonicParsing="false" onAction="#onAction" text="Stop" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>

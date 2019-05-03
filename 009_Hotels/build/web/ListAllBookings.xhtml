@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>List all Bookings</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <fieldset>
+            <legend>All bookings</legend>
+            <h:form>
+                <h1>List Bookings</h1>
+                <h:outputText value="filter:" />
+                <h:inputText value="#{listAllBookings.filterName}">
+                    <f:ajax event="keyup" render="myTable"/>
+                </h:inputText>
+                <h:outputText value="attribute:" />
+                <h:selectOneMenu value="#{listAllBookings.filterType}">
+                    <f:ajax render="myTable"/>
+                    <f:selectItems value="#{listAllBookings.filterTypes}"/>
+                </h:selectOneMenu>
+
+                <h:dataTable id="myTable" value="#{listAllBookings.bookings}" var="booking"  border="3">
+                    <h:column>
+                        <f:facet name="header">Id Booking</f:facet>
+                        <h:outputText value="#{booking.id}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Name Hotel</f:facet>
+                        <h:outputText value="#{booking.hotel.hotelname}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Guest</f:facet>
+                        <h:outputText value="#{booking.guest}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Check In</f:facet>
+                        <h:outputText value="#{booking.check_in}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Command</f:facet>
+                        <h:commandButton value="Update" action="#{listAllBookings.updateBooking(booking)}"></h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Command</f:facet>
+                        <h:commandButton value="Delete" action="#{listAllBookings.delete(booking)}"></h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Command</f:facet>
+                        <h:commandButton value="New Service" action="#{listAllBookings.newService(booking)}"></h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Command</f:facet>
+                        <h:commandButton value="List Service" action="#{listAllBookings.listService(booking)}"></h:commandButton>
+                    </h:column>
+                </h:dataTable>
+
+
+                <h:commandButton value="Back" action="ListHotels?faces-redirect=true"></h:commandButton><br></br>
+                <h:outputLabel value="#{listAllBookings.message}"></h:outputLabel>
+            </h:form>
+        </fieldset>
+
+    </h:body>
+</html>

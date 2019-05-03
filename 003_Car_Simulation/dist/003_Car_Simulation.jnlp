@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="003_Car_Simulation.jnlp">
+  <information>
+    <title>003_Car_Simulation</title>
+    <vendor>Marcel Judth</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="003_Car_Simulation.jar" size="333433" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="003_Car_Simulation" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="pkg003_car_simulation.Main"  name="003_Car_Simulation" />
+  <update check="always"/>
+</jnlp>

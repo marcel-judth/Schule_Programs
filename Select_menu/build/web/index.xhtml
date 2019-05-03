@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            user name  
+            <h:selectOneMenu value="#{form_data.userName}">
+                <f:selectItems value="#{form_data.getUsers()}"></f:selectItems>
+            </h:selectOneMenu><br></br>
+
+            password
+            <h:inputText value="#{form_data.password}"></h:inputText><br></br>
+
+            <ul>
+                <li> user name:        #{form_data.user.name}</li>
+                <li> number of orders: #{form_data.user.countOrders}</li>
+                <li> information:      #{form_data.user.information}</li>
+            </ul>
+
+            <h:commandButton value="LLogin" action="#{form_data.verify()}"></h:commandButton>
+            <h:commandButton value="ListBooks" action="ListBooks?faces-redirect=true" ></h:commandButton>
+            <h:commandButton value="NewBook" action="index" disabled="#{form_data.disabled}" ></h:commandButton>
+            <h:commandButton value="NewUser" action="index" disabled="#{form_data.disabled}" ></h:commandButton>
+        </h:form>
+
+
+        <div id="message">
+            == #{form_data.message} ==
+        </div>
+    </h:body>
+</html>
+

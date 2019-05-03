@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>New Booking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <fieldset>
+            <legend>New Service for booking: #{listAllBookings.currentBooking}</legend>
+            <h:form>
+                <h1>New Service</h1>
+                <table>
+                    <tr>
+                        <td>check in (dd.mm.yyyy):</td>
+                        <td><h:inputText id="serviceDate" value="#{newService.serviceDate}"></h:inputText></td>
+                    </tr>
+                    <tr>
+                        <td>service description:</td>
+                        <td><h:inputText id="serviceDesc" value="#{newService.serviceDesc}"></h:inputText></td>
+                    </tr>
+                </table>
+                <h:commandButton action="#{newService.newService()}" value="Insert"></h:commandButton>
+                <h:commandButton value="Back" action="ListAllBookings?faces-redirect=true"></h:commandButton><br></br>
+                <h:outputLabel value="#{newService.message}"></h:outputLabel>
+            </h:form>
+        </fieldset>
+    </h:body>
+</html>

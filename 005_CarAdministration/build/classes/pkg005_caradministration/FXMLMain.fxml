@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="1457.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg005_caradministration.FXMLMainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Car">
+            <items>
+              <MenuItem id="menuItemInsert" fx:id="menuItemInsert" mnemonicParsing="false" onAction="#actionPerform" text="Insert" />
+                  <MenuItem id="menuItemDelete" fx:id="menuItemDelete" mnemonicParsing="false" onAction="#actionPerform" text="Delete" />
+                  <MenuItem id="menuItemUpdate" fx:id="menuItemUpdate" mnemonicParsing="false" onAction="#actionPerform" text="Update" />
+                  <MenuItem id="menuItemReplace" fx:id="menuItemReplace" mnemonicParsing="false" onAction="#actionPerform" text="Replace" />
+                  <MenuItem id="menuItemFindAll" fx:id="menuItemFindAll" mnemonicParsing="false" onAction="#actionPerform" text="find all" />
+                  <MenuItem id="menuItemFindRelevance" fx:id="menuItemFindRelevance" mnemonicParsing="false" onAction="#actionPerform" text="find relevance" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Owner">
+               <items>
+                  <MenuItem id="menuItemInsert" fx:id="menuItemInsertOwner" mnemonicParsing="false" onAction="#actionPerform" text="Insert" />
+                  <MenuItem id="menuItemDelete" fx:id="menuItemDeleteOwner" mnemonicParsing="false" onAction="#actionPerform" text="Delete" />
+                  <MenuItem id="menuItemUpdate" fx:id="menuItemUpdateOwner" mnemonicParsing="false" onAction="#actionPerform" text="Update" />
+                  <MenuItem id="menuItemReplace" fx:id="menuItemReplaceOwner" mnemonicParsing="false" onAction="#actionPerform" text="Replace" />
+                  <MenuItem id="menuItemFindAll" fx:id="menuItemFindAllOwner" mnemonicParsing="false" onAction="#actionPerform" text="find all" />
+                  <MenuItem id="menuItemDelete" fx:id="menuItemInsertOwnership" mnemonicParsing="false" onAction="#actionPerform" text="=&gt; Car" />
+                  <MenuItem id="menuItemDelete" fx:id="menuItemRemoveOwnership" mnemonicParsing="false" onAction="#actionPerform" text="Car =&gt;" />
+                  <MenuItem id="menuItemDelete" fx:id="menuItemOffences" mnemonicParsing="false" onAction="#actionPerform" text="Offences" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Database">
+            <items>
+              <MenuItem id="menuItemConnect" fx:id="menuItemConnect" mnemonicParsing="false" onAction="#actionPerform" text="Connect" />
+                  <MenuItem id="menuItemClose" fx:id="menuItemClose" mnemonicParsing="false" onAction="#actionPerform" text="Close" />
+                  <MenuItem id="menuItemCreateTextIndex" fx:id="menuItemCreateTextInd" mnemonicParsing="false" onAction="#actionPerform" text="Create Text Index" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TitledPane animated="false" layoutX="39.0" layoutY="61.0" prefHeight="510.0" prefWidth="477.0" text="Car info">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="483.0" prefWidth="590.0">
+               <children>
+                  <GridPane prefHeight="60.0" prefWidth="481.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtCarName" text="Audi A4">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="txtCarCcm" text="2000" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="txtCarHP" text="140" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="txtCarInfo" layoutX="19.0" layoutY="64.0" prefHeight="157.0" prefWidth="440.0" text="what a car" />
+                  <ListView fx:id="listCars" layoutX="15.0" layoutY="241.0" prefHeight="226.0" prefWidth="441.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Label fx:id="txtMessage" contentDisplay="CENTER" layoutX="179.0" layoutY="598.0" prefHeight="45.0" prefWidth="763.0" style="-fx-background-color: lightgreen;" text="..." textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="txtIPAdress" layoutX="208.0" layoutY="4.0" text="192.168.210.210" />
+      <TitledPane animated="false" layoutX="943.0" layoutY="60.0" prefHeight="510.0" prefWidth="477.0" text="Owner info">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="483.0" prefWidth="590.0">
+               <children>
+                  <GridPane prefHeight="60.0" prefWidth="481.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtOwnerName" text="Kernstein Karli">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="txtBirthdate" text="1897-08-09" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="txtOwnerDetails" layoutX="19.0" layoutY="64.0" prefHeight="157.0" prefWidth="440.0" text="currently no delicts" />
+                  <ListView fx:id="listOwners" layoutX="15.0" layoutY="241.0" prefHeight="226.0" prefWidth="441.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="533.0" layoutY="62.0" prefHeight="510.0" prefWidth="401.0" text="Ownership Info">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="483.0" prefWidth="590.0">
+               <children>
+                  <ListView fx:id="listOwnerships" layoutX="15.0" layoutY="241.0" prefHeight="226.0" prefWidth="370.0" />
+                  <DatePicker fx:id="datePickerStartDate" layoutX="14.0" layoutY="51.0" />
+                  <DatePicker fx:id="datePickerEndDate" layoutX="14.0" layoutY="92.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

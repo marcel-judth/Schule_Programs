@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="572.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SimulationController">
+   <children>
+      <Line endX="109.85711669921875" layoutX="141.0" layoutY="165.0" startX="-100.0" />
+      <Line endX="111.64288330078125" endY="0.928558349609375" layoutX="140.0" layoutY="200.0" startX="-100.0" />
+      <Line endX="76.71429443359375" layoutX="431.0" layoutY="165.0" startX="-133.28570556640625" />
+      <Line endX="76.71429443359375" layoutX="430.0" layoutY="200.0" startX="-127.6500244140625" startY="0.721435546875" />
+      <Line endX="-9.85711669921875" endY="78.57144165039062" layoutX="261.0" layoutY="85.0" startX="-9.85711669921875" startY="-44.571441650390625" />
+      <Line endX="-9.85711669921875" endY="78.57144165039062" layoutX="309.0" layoutY="84.0" startX="-9.85711669921875" startY="-44.571441650390625" />
+      <Line endX="-9.85711669921875" endY="78.57144165039062" layoutX="262.0" layoutY="246.0" startX="-9.85711669921875" startY="-44.571441650390625" />
+      <Line endX="-9.85711669921875" endY="79.0" layoutX="310.0" layoutY="246.0" startX="-9.85711669921875" startY="-44.571441650390625" />
+      <Label layoutX="261.0" layoutY="30.0" style="-fx-font-weight: bold;" text="Afritz" textFill="WHITE" />
+      <Label layoutX="261.0" layoutY="317.0" style="-fx-font-weight: bold;" text="Udine" textFill="WHITE" />
+      <Label layoutX="475.0" layoutY="175.0" style="-fx-font-weight: bold;" text="Klagenfurt" textFill="WHITE" />
+      <Label layoutX="31.0" layoutY="175.0" style="-fx-font-weight: bold;" text="Spittal" textFill="WHITE" />
+      <Line endX="-75.28570556640625" layoutX="185.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="450.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="404.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="277.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="232.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="535.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="492.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-75.28570556640625" layoutX="323.0" layoutY="184.0" startX="-100.0" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-86.14288330078125" endY="26.28570556640625" layoutX="363.0" layoutY="48.0" startX="-86.14288330078125" startY="1.71429443359375" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-86.14288330078125" endY="26.28570556640625" layoutX="363.0" layoutY="202.0" startX="-86.14288330078125" startY="1.71429443359375" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-86.14288330078125" endY="26.28570556640625" layoutX="363.0" layoutY="134.0" startX="-86.14288330078125" startY="1.71429443359375" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-86.14288330078125" endY="26.28570556640625" layoutX="363.0" layoutY="88.0" startX="-86.14288330078125" startY="1.71429443359375" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-86.14288330078125" endY="26.28570556640625" layoutX="363.0" layoutY="288.0" startX="-86.14288330078125" startY="1.71429443359375" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Line endX="-86.14288330078125" endY="26.28570556640625" layoutX="363.0" layoutY="249.0" startX="-86.14288330078125" startY="1.71429443359375" stroke="#efff0a" style="-fx-stroke-width: 5;" />
+      <Label layoutX="271.0" layoutY="6.0" style="-fx-background-color: blue;" text="P" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="334.0" style="-fx-background-color: blue;" text="P" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMessage" alignment="CENTER" layoutX="78.0" layoutY="369.0" prefHeight="30.0" prefWidth="412.0" style="-fx-background-color: lightgreen;" text="..." textFill="#1e1d1d" />
+   </children>
+</AnchorPane>

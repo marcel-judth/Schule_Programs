@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="006_PerformanceComparison.jnlp">
+  <information>
+    <title>006_PerformanceComparison</title>
+    <vendor>schueler</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="006_PerformanceComparison.jar" size="11993" download="eager" />
+    <jar href="lib/gson-2.5.jar" size="232482" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="006_PerformanceComparison" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="pkg006_performancecomparison.Main"  name="006_PerformanceComparison" />
+  <update check="always"/>
+</jnlp>

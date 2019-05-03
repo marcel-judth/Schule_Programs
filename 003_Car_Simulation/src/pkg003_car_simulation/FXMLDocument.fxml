@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg003_car_simulation.FXMLDocumentController">
+    <children>
+        <Button id="btnStart" fx:id="btnStart" layoutX="71.0" layoutY="72.0" onAction="#oncklick" text="Start" />
+        <Label id="txtMessage" fx:id="txtMessage" layoutX="34.0" layoutY="778.0" minHeight="16" minWidth="69" prefHeight="31.0" prefWidth="1219.0" style="-fx-background-color: yellow;" />
+      <Pane layoutX="66.0" layoutY="168.0" prefHeight="590.0" prefWidth="1132.0" style="-fx-background-image: url('file:C:/Users/Marcel%20Judth/Documents/GitHub/Schule/5.AHIFS/POS/Programs/003_Car_Simulation/src/res/track.png'); -fx-background-size: stretch;">
+         <children>
+            <ImageView id="imgCar" fx:id="imgCar" fitHeight="150.0" fitWidth="200.0" layoutX="136.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/car.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button id="btnStop" fx:id="btnStop" layoutX="240.0" layoutY="72.0" onAction="#oncklick" text="Stop" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>List Services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <fieldset>
+            <legend>All Services for booking: #{listAllBookings.currentBooking}</legend>
+            <h:form>
+                <h1>List Services</h1>
+                <h:dataTable value="#{listServices.services}" var="service" border="3">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        <h:outputText value="#{service.id}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">description</f:facet>
+                        <h:outputText value="#{service.service_description}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">date</f:facet>
+                        <h:outputText value="#{service.service_date}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Command</f:facet>
+                        <h:commandButton value="Delete" action="#{listServices.delete(service)}"></h:commandButton>
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton value="Back" action="ListAllBookings?faces-redirect=true"></h:commandButton><br></br>
+                <h:outputLabel value="#{listServices.message}"></h:outputLabel>
+            </h:form>
+        </fieldset>
+
+    </h:body>
+</html>
