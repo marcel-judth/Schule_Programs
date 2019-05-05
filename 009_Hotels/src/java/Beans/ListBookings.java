@@ -27,6 +27,7 @@ public class ListBookings implements Serializable{
     private ListHotels listHotels;
     private ArrayList<Booking> bookings;
     private String message;
+    private boolean changed;
     
     /**
      * Creates a new instance of ListBookings

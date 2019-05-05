@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>login</title>
+    </h:head>
+    <h:body>
+        <fieldset style="width: 600px; margin: auto;">
+            <legend>JSF Login Form</legend>
+            <h:form>
+                <h1>Login</h1>
+                <h:outputText value="user name:" />
+                <h:selectOneMenu value="#{login.name}">
+                    <f:selectItems value="#{login.allUsers}"/>
+                </h:selectOneMenu>
+                <br></br><br></br>
+
+                <h:outputText value="password:" />
+                <h:inputSecret id="password" value="#{login.password}"></h:inputSecret>
+                <h:message for="password"></h:message>
+                <br></br><br></br>
+                
+                <div id="userdata" style="background: lightgreen">
+                    <ul>
+                        <li>user name: <h:outputText value="#{login.user.username}" /></li>
+                        <li>number of orders: <h:outputText value="#{login.user.countOrders}" /></li>
+                        <li>information: <h:outputText value="#{login.user.information}" /></li>
+                    </ul>
+                </div>
+                
+                <h:commandButton action="#{login.validateUsernamePassword}" value="Login"></h:commandButton>   
+                <h:commandButton value="ListBooks" action="ListBooks?faces-redirect=true"></h:commandButton>
+                <br></br><br></br>
+                <h:outputLabel value="#{login.message}"></h:outputLabel>
+            </h:form>
+        </fieldset>
+    </h:body>
+</html>

@@ -28,19 +28,22 @@ public class ListAllBookings implements Serializable {
     private ArrayList<Booking> bookings;
     private String message;
     private String filterName;
+    private String curFilterName;
     private String filterType;
     private ArrayList<String> filterTypes;
     private Booking currentBooking;
+    private boolean changed;
 
     public ListAllBookings() {
         try {
             bookings = Database.getBookings();
-            System.out.println(bookings);
             message = bookings.size() + " bookings listed.";
             filterTypes = new ArrayList<>();
             filterTypes.add("GUESTS");
             filterTypes.add("HOTELS");
             filterName = "";
+            this.curFilterName = "";
+            this.filterType = filterTypes.get(0);
         } catch (SQLException ex) {
             message = ex.getMessage();
             Logger.getLogger(ListAllBookings.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,16 +53,21 @@ public class ListAllBookings implements Serializable {
     public ArrayList<Booking> getBookings() {
         try {
             System.out.println("hallo" + filterType + ", filterName" + filterName);
-            if (filterName.equals("")) {
-                bookings = Database.getBookings();
-            } else {
-                if (filterType.equals("GUESTS")) {
-                    bookings = Database.getBookingsByGuest(filterName);
-                    System.out.println("in guest" + bookings);
+            System.out.println(curFilterName);
+            if (!this.curFilterName.equals(filterName) || this.changed) {
+                if (filterName.equals("")) {
+                    bookings = Database.getBookings();
                 } else {
-                    bookings = Database.getBookingsByHotelName(filterName);
-                    System.out.println("in hotel" + bookings);
+                    if (filterType.equals("GUESTS")) {
+                        bookings = Database.getBookingsByGuest(filterName);
+                        System.out.println("in guest" + bookings);
+                    } else {
+                        bookings = Database.getBookingsByHotelName(filterName);
+                        System.out.println("in hotel" + bookings);
+                    }
                 }
+                this.curFilterName = this.filterName;
+                this.changed = false;
             }
         } catch (Exception ex) {
             message = ex.getMessage();
@@ -116,6 +124,7 @@ public class ListAllBookings implements Serializable {
         try {
             System.out.println(booking);
             Database.delete(booking);
+            this.changed = true;
             message = booking.toString() + " deleted!";
         } catch (Exception ex) {
             message = ex.getMessage();
@@ -125,10 +134,11 @@ public class ListAllBookings implements Serializable {
 
     public void updateBooking(Booking booking) throws IOException {
         this.currentBooking = booking;
+        this.changed = true;
         FacesContext.getCurrentInstance().getExternalContext().redirect("UpdateBooking.xhtml");
     }
-    
-    public void newService(Booking booking){
+
+    public void newService(Booking booking) {
         try {
             this.currentBooking = booking;
             FacesContext.getCurrentInstance().getExternalContext().redirect("NewService.xhtml");
@@ -136,8 +146,8 @@ public class ListAllBookings implements Serializable {
             Logger.getLogger(ListAllBookings.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void listService(Booking booking){
+
+    public void listService(Booking booking) {
         try {
             this.currentBooking = booking;
             FacesContext.getCurrentInstance().getExternalContext().redirect("ListServices.xhtml");
