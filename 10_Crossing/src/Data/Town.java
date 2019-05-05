@@ -22,7 +22,7 @@ public class Town {
     private Point startPoint;
     private Point crossingPoint;
 
-    public Town(String name, boolean hasVorrang, Point startPoint, Point crossingPoint) {
+    public Town(String name, boolean hasVorrang, Point startPoint, Point crossingPoint, int lanes) {
         this.name = name;
         this.hasVorrang = hasVorrang;
         this.left = left;
@@ -30,7 +30,7 @@ public class Town {
         this.opposite = opposite;
         this.startPoint = startPoint;
         this.crossingPoint = crossingPoint;
-        this.drivingPermit = new Semaphore(1);
+        this.drivingPermit = new Semaphore(lanes);
     }
 
     public String getName() {
@@ -41,7 +41,7 @@ public class Town {
         this.name = name;
     }
 
-    public boolean isHasVorrang() {
+    public boolean hasVorrang() {
         return hasVorrang;
     }
 

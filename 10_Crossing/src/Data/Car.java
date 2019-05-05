@@ -6,11 +6,7 @@
 package Data;
 
 import Controller.SimulationController;
-import helpers.AnimCoordinates;
-import helpers.TimeGenerator;
 import java.awt.Point;
-import java.util.HashMap;
-import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -19,7 +15,7 @@ import javafx.concurrent.Task;
  *
  * @author schueler
  */
-public class Car extends Task<String> implements AnimCoordinates {
+public class Car extends Task<String> {
 
     private static final int DEVIATION = 20;
     private static SimulationController controller;
@@ -48,12 +44,31 @@ public class Car extends Task<String> implements AnimCoordinates {
     protected String call() throws Exception {
         this.controller.addNewCarImage(this);
         this.orgin.getDrivingPermit().acquire();
+        this.destination.getDrivingPermit().acquire();
         this.oldLocation = this.currentLocation;
         this.currentLocation = this.orgin.getCrossingPoint();
         this.moveCar();
-        Thread.sleep(1000);
+        Crossing crossing = controller.getCrossing();
+        crossing.addWaitingCar(this);
+        boolean allowedToDrive;
+        do {
+            crossing.getDrivingPermission().acquire();
+            allowedToDrive = crossing.isAllowedToDrive(this);
+            if(!allowedToDrive)
+                crossing.getDrivingPermission().release();
+        } while (!allowedToDrive);
+
+        crossing.removeWaitingCar(this);
+        this.oldLocation = this.currentLocation;
+        this.currentLocation = controller.getCrossing().getMiddle();
+        this.moveCar();
         
+        this.oldLocation = this.currentLocation;
+        this.currentLocation = this.getDestination().getStartPoint();
+        this.moveCar();
+        crossing.getDrivingPermission().release();
         this.orgin.getDrivingPermit().release();
+        this.destination.getDrivingPermit().release();
         this.removeCar();
         return "finished!";
     }

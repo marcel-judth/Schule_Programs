@@ -8,7 +8,6 @@ package Controller;
 import Data.Car;
 import Data.CarGenerator;
 import Data.Crossing;
-import Data.Place;
 import Data.Town;
 import java.awt.Point;
 import java.net.URL;
@@ -52,17 +51,15 @@ public class SimulationController implements Initializable {
         ObservableList<String> obs = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
         this.initCrossing();
         this.collImages = new ArrayList<>();
-        this.carGenerator = new CarGenerator(crossing, 100, 200, obs);
+        this.carGenerator = new CarGenerator(crossing, 2000, 200, obs);
         Car.setController(this);
         new Thread(this.carGenerator).start();
     }
     
-    public void addNewCarImage(Car c) {
+    public  void addNewCarImage(Car c) {
         try{
             ImageView imageView = new ImageView();
             imageView.setImage(new Image(getClass().getResource(IMAGE_CAR_PATH).toExternalForm()));
-//            if(c.getOrgin()== Place.AFRITZ || c.getStartPoint() == Place.UDINE)
-//                imageView.setRotate(90);
             imageView.setFitWidth(40);
             imageView.setFitHeight(20);
             imageView.setX(c.getCurrentLocation().x);
@@ -74,7 +71,7 @@ public class SimulationController implements Initializable {
         } 
     }    
 
-    public void doAnimationMoving(Car car) {
+    public void doAnimationMoving(Car car) throws InterruptedException {
         ImageView iv = this.collImages.get(car.getId() - 1);
         Path path = new Path();
         path.getElements().add(new MoveTo(car.getOldLocation().x, car.getOldLocation().y));
@@ -86,6 +83,7 @@ public class SimulationController implements Initializable {
         pathTransition.setNode(iv);
         pathTransition.setAutoReverse(false);
         pathTransition.play();
+        Thread.sleep(ANIMATION_DURATION);
     }
 
     public void removeImage(Car car) {
@@ -95,10 +93,10 @@ public class SimulationController implements Initializable {
 
     private void initCrossing() {
         this.crossing = new Crossing(new Point(275, 180));
-        Town afritz = new Town("Afritz", false, new Point(275, 30), new Point(275, 134));
-        Town klagenfurt = new Town("Klagenfurt", true, new Point(475, 180), new Point(320, 180));
-        Town spittal = new Town("Spittal", true, new Point(31, 180), new Point(230, 180));
-        Town udine = new Town("Udine", false, new Point(275, 300), new Point(275, 220));
+        Town afritz = new Town("Afritz", false, new Point(275, 30), new Point(275, 134), 1);
+        Town klagenfurt = new Town("Klagenfurt", true, new Point(475, 180), new Point(320, 180), 2);
+        Town spittal = new Town("Spittal", true, new Point(31, 180), new Point(230, 180), 2);
+        Town udine = new Town("Udine", false, new Point(275, 300), new Point(275, 220), 1);
         
         afritz.setOpposite(udine);
         afritz.setLeft(spittal);
@@ -120,5 +118,9 @@ public class SimulationController implements Initializable {
         udine.setRight(klagenfurt);
         this.crossing.addTown(udine);
         
+    }
+
+    public Crossing getCrossing() {
+        return crossing;
     }
 }
