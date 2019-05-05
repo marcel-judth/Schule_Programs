@@ -67,7 +67,7 @@ public class Database {
     
     private static void connect() throws SQLException{
         DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-        connection = DriverManager.getConnection(DB_URL ,USER,PASS);
+        connection = DriverManager.getConnection(DB_URL_EXT ,USER,PASS);
     }
     
     public static User login(String username, String password) throws SQLException{
