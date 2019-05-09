@@ -24,7 +24,7 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "listAllBookings")
 @SessionScoped
 public class ListAllBookings implements Serializable {
-
+    
     private ArrayList<Booking> bookings;
     private String message;
     private String filterName;

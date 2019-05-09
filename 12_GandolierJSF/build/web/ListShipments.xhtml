@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>List of Shipments</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1>List of books</h1>
+        <fieldset style="width: 600px; margin: auto;">
+            <h:form>
+                <legend>gondoliere: #{listShipments.username}</legend>
+                <h:panelGroup id="myTable">
+                    
+                    <h:dataTable value="#{listShipments.shipments}" var="shipment" border="3">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        <h:outputText value="#{shipment.shId}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">gondoliere</f:facet>
+                        <h:outputText value="#{shipment.gondoliere}"></h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">details</f:facet>
+                        <h:outputText value="#{shipment.details}"></h:outputText>
+                    </h:column>
+                </h:dataTable>
+                    
+                </h:panelGroup>
+
+                <h:form>
+                    
+                    <table>
+                        <tr>
+                            <td>shipment-id</td>
+                            <td><h:inputText id="shipmentid" value="#{listShipments.shipmentid}"></h:inputText></td>
+                        </tr>
+                       
+                        <tr>
+                            <td>shipment-detail:</td>
+                            <td><h:inputText id="shipmentdetail" value="#{listShipments.shipmentdetails}"></h:inputText></td>
+                        </tr>
+                    </table>
+                    <h:commandButton action="#{listShipments.newShippment}" value="Save"></h:commandButton>
+                </h:form>
+                
+                
+                
+                <h:outputText value="#{listShipments.message}" />
+            </h:form>
+        </fieldset>
+    </h:body>
+</html>
